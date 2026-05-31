@@ -14,10 +14,7 @@ func _ready() -> void:
 	character_id = "capybara"
 	ability_name = "ULTRA CHILL"
 	ability_description = "Tap pour accélérer"
-	# Physique spéciale : moins de friction
-	physics_material_override = PhysicsMaterial.new()
-	physics_material_override.friction = 0.0
-	physics_material_override.bounce = 0.0
+	# Physique (friction=0, bounce=0) définie dans CapybaraChill.tscn
 
 
 func use_ability() -> void:

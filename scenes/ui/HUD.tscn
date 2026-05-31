@@ -34,19 +34,19 @@ border_color = Color(0.6, 0.2, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="btn_primary"]
 bg_color = Color(0.6, 0.2, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 border_width_bottom = 5
 border_color = Color(0.35, 0.1, 0.6, 1)
 
 [sub_resource type="StyleBoxFlat" id="btn_gold"]
 bg_color = Color(1, 0.8, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 border_width_bottom = 5
 border_color = Color(0.7, 0.55, 0, 1)
 

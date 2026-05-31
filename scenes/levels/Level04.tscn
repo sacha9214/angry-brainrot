@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://level04"]
+[gd_scene load_steps=12 format=3 uid="uid://level04"]
 
 [ext_resource type="Script" path="res://scripts/core/LevelManager.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/Slingshot.gd" id="2"]
@@ -16,31 +16,28 @@ func _ready() -> void:
 [sub_resource type="RectangleShape2D" id="GroundShape"]
 size = Vector2(1080, 100)
 
-[sub_resource type="RectangleShape2D" id="Col60x120"]
-size = Vector2(60, 120)
-
-[sub_resource type="RectangleShape2D" id="Roof160x30"]
-size = Vector2(160, 30)
-
 [sub_resource type="RectangleShape2D" id="Ice60x60"]
 size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="EnemyShape"]
-radius = 32.0
+[sub_resource type="RectangleShape2D" id="S60x60"]
+size = Vector2(60, 60)
 
-[sub_resource type="CircleShape2D" id="BossShape"]
-radius = 44.0
+[sub_resource type="RectangleShape2D" id="W120x30"]
+size = Vector2(120, 30)
+
+[sub_resource type="CircleShape2D" id="EnemyShape"]
+radius = 35.0
 
 [node name="Level04" type="Node2D"]
 script = ExtResource("1")
 level_number = 4
-characters_in_level = Array[PackedScene]([ExtResource("3"), ExtResource("5"), ExtResource("4"), ExtResource("3")])
+characters_in_level = Array[PackedScene]([ExtResource("3"), ExtResource("5"), ExtResource("4"), ExtResource("3"), ExtResource("5")])
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -10
 offset_right = 1080.0
 offset_bottom = 1920.0
-color = Color(0.4, 0.7, 1.0, 1)
+color = Color(0.85, 0.92, 1.0, 1)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 add_to_group = ["ground"]
@@ -52,13 +49,14 @@ shape = SubResource("GroundShape")
 [node name="GroundVisual" type="ColorRect" parent="Ground"]
 position = Vector2(0, 1770)
 size = Vector2(1080, 150)
-color = Color(0.3, 0.6, 0.2, 1)
+color = Color(0.75, 0.85, 0.95, 1)
 
 [node name="Slingshot" type="Node2D" parent="."]
 position = Vector2(200, 1700)
 script = ExtResource("2")
 
 [node name="Anchor" type="Node2D" parent="Slingshot"]
+position = Vector2(0, -40)
 
 [node name="TrajectoryLine" type="Line2D" parent="Slingshot"]
 width = 3.0
@@ -78,202 +76,298 @@ color = Color(0.4, 0.25, 0.08, 1)
 
 [node name="Structures" type="Node2D" parent="."]
 
-[node name="Tower1" type="RigidBody2D" parent="Structures"]
-position = Vector2(580, 1700)
-mass = 4.0
+[node name="Found1" type="RigidBody2D" parent="Structures"]
+position = Vector2(620, 1730)
+mass = 5.0
 add_to_group = ["structures"]
 
-[node name="Shape" type="CollisionShape2D" parent="Structures/Tower1"]
-shape = SubResource("Col60x120")
+[node name="Shape" type="CollisionShape2D" parent="Structures/Found1"]
+shape = SubResource("S60x60")
 
-[node name="Visual" type="ColorRect" parent="Structures/Tower1"]
-offset_left = -30.0
-offset_top = -60.0
-offset_right = 30.0
-offset_bottom = 60.0
-color = Color(0.55, 0.55, 0.55, 1)
-
-[node name="Tower2" type="RigidBody2D" parent="Structures"]
-position = Vector2(700, 1700)
-mass = 4.0
-add_to_group = ["structures"]
-
-[node name="Shape" type="CollisionShape2D" parent="Structures/Tower2"]
-shape = SubResource("Col60x120")
-
-[node name="Visual" type="ColorRect" parent="Structures/Tower2"]
-offset_left = -30.0
-offset_top = -60.0
-offset_right = 30.0
-offset_bottom = 60.0
-color = Color(0.55, 0.55, 0.55, 1)
-
-[node name="Tower3" type="RigidBody2D" parent="Structures"]
-position = Vector2(820, 1700)
-mass = 4.0
-add_to_group = ["structures"]
-
-[node name="Shape" type="CollisionShape2D" parent="Structures/Tower3"]
-shape = SubResource("Col60x120")
-
-[node name="Visual" type="ColorRect" parent="Structures/Tower3"]
-offset_left = -30.0
-offset_top = -60.0
-offset_right = 30.0
-offset_bottom = 60.0
-color = Color(0.55, 0.55, 0.55, 1)
-
-[node name="Tower4" type="RigidBody2D" parent="Structures"]
-position = Vector2(940, 1700)
-mass = 4.0
-add_to_group = ["structures"]
-
-[node name="Shape" type="CollisionShape2D" parent="Structures/Tower4"]
-shape = SubResource("Col60x120")
-
-[node name="Visual" type="ColorRect" parent="Structures/Tower4"]
-offset_left = -30.0
-offset_top = -60.0
-offset_right = 30.0
-offset_bottom = 60.0
-color = Color(0.55, 0.55, 0.55, 1)
-
-[node name="RoofLeft" type="RigidBody2D" parent="Structures"]
-position = Vector2(640, 1625)
-mass = 4.0
-add_to_group = ["structures"]
-
-[node name="Shape" type="CollisionShape2D" parent="Structures/RoofLeft"]
-shape = SubResource("Roof160x30")
-
-[node name="Visual" type="ColorRect" parent="Structures/RoofLeft"]
-offset_left = -80.0
-offset_top = -15.0
-offset_right = 80.0
-offset_bottom = 15.0
-color = Color(0.55, 0.55, 0.55, 1)
-
-[node name="RoofRight" type="RigidBody2D" parent="Structures"]
-position = Vector2(880, 1625)
-mass = 4.0
-add_to_group = ["structures"]
-
-[node name="Shape" type="CollisionShape2D" parent="Structures/RoofRight"]
-shape = SubResource("Roof160x30")
-
-[node name="Visual" type="ColorRect" parent="Structures/RoofRight"]
-offset_left = -80.0
-offset_top = -15.0
-offset_right = 80.0
-offset_bottom = 15.0
-color = Color(0.55, 0.55, 0.55, 1)
-
-[node name="Ice1" type="RigidBody2D" parent="Structures"]
-position = Vector2(640, 1580)
-mass = 0.8
-add_to_group = ["structures"]
-
-[node name="Shape" type="CollisionShape2D" parent="Structures/Ice1"]
-shape = SubResource("Ice60x60")
-
-[node name="Visual" type="ColorRect" parent="Structures/Ice1"]
+[node name="Visual" type="ColorRect" parent="Structures/Found1"]
 offset_left = -30.0
 offset_top = -30.0
 offset_right = 30.0
 offset_bottom = 30.0
-color = Color(0.65, 0.85, 1.0, 1)
+color = Color(0.5, 0.5, 0.53, 1)
 
-[node name="Ice2" type="RigidBody2D" parent="Structures"]
-position = Vector2(880, 1580)
-mass = 0.8
+[node name="Found2" type="RigidBody2D" parent="Structures"]
+position = Vector2(720, 1730)
+mass = 5.0
 add_to_group = ["structures"]
 
-[node name="Shape" type="CollisionShape2D" parent="Structures/Ice2"]
-shape = SubResource("Ice60x60")
+[node name="Shape" type="CollisionShape2D" parent="Structures/Found2"]
+shape = SubResource("S60x60")
 
-[node name="Visual" type="ColorRect" parent="Structures/Ice2"]
+[node name="Visual" type="ColorRect" parent="Structures/Found2"]
 offset_left = -30.0
 offset_top = -30.0
 offset_right = 30.0
 offset_bottom = 30.0
-color = Color(0.65, 0.85, 1.0, 1)
+color = Color(0.5, 0.5, 0.53, 1)
+
+[node name="Found3" type="RigidBody2D" parent="Structures"]
+position = Vector2(800, 1730)
+mass = 5.0
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Found3"]
+shape = SubResource("S60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Found3"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.5, 0.5, 0.53, 1)
+
+[node name="Found4" type="RigidBody2D" parent="Structures"]
+position = Vector2(900, 1730)
+mass = 5.0
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Found4"]
+shape = SubResource("S60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Found4"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.5, 0.5, 0.53, 1)
+
+[node name="Ice1A" type="RigidBody2D" parent="Structures"]
+position = Vector2(620, 1670)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice1A"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice1A"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice1B" type="RigidBody2D" parent="Structures"]
+position = Vector2(620, 1610)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice1B"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice1B"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice1C" type="RigidBody2D" parent="Structures"]
+position = Vector2(620, 1550)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice1C"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice1C"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice2A" type="RigidBody2D" parent="Structures"]
+position = Vector2(720, 1670)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice2A"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice2A"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice2B" type="RigidBody2D" parent="Structures"]
+position = Vector2(720, 1610)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice2B"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice2B"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice3A" type="RigidBody2D" parent="Structures"]
+position = Vector2(800, 1670)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice3A"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice3A"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice3B" type="RigidBody2D" parent="Structures"]
+position = Vector2(800, 1610)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice3B"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice3B"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice4A" type="RigidBody2D" parent="Structures"]
+position = Vector2(900, 1670)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice4A"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice4A"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Ice4B" type="RigidBody2D" parent="Structures"]
+position = Vector2(900, 1610)
+mass = 0.8
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Ice4B"]
+shape = SubResource("Ice60x60")
+
+[node name="Visual" type="ColorRect" parent="Structures/Ice4B"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.65, 0.85, 1.0, 0.85)
+
+[node name="Arch" type="RigidBody2D" parent="Structures"]
+position = Vector2(760, 1535)
+add_to_group = ["structures"]
+
+[node name="Shape" type="CollisionShape2D" parent="Structures/Arch"]
+shape = SubResource("W120x30")
+
+[node name="Visual" type="ColorRect" parent="Structures/Arch"]
+offset_left = -60.0
+offset_top = -15.0
+offset_right = 60.0
+offset_bottom = 15.0
+color = Color(0.6, 0.4, 0.18, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy1" type="RigidBody2D" parent="Enemies"]
-position = Vector2(580, 1600)
+[node name="Chimpanzini1" type="RigidBody2D" parent="Enemies"]
+position = Vector2(620, 1505)
 script = "res://scripts/core/Enemy.gd"
+max_health = 30.0
+score_value = 300
 add_to_group = ["enemies"]
 
-[node name="Shape" type="CollisionShape2D" parent="Enemies/Enemy1"]
+[node name="Shape" type="CollisionShape2D" parent="Enemies/Chimpanzini1"]
 shape = SubResource("EnemyShape")
 
-[node name="Face" type="Label" parent="Enemies/Enemy1"]
-offset_left = -28.0
-offset_top = -32.0
-offset_right = 28.0
-offset_bottom = 32.0
-text = "😈"
+[node name="Face" type="Label" parent="Enemies/Chimpanzini1"]
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 30.0
+offset_bottom = 35.0
+text = "🐒"
 horizontal_alignment = 1
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 48
 
-[node name="Enemy2" type="RigidBody2D" parent="Enemies"]
-position = Vector2(760, 1600)
-script = "res://scripts/core/Enemy.gd"
-add_to_group = ["enemies"]
-
-[node name="Shape" type="CollisionShape2D" parent="Enemies/Enemy2"]
-shape = SubResource("EnemyShape")
-
-[node name="Face" type="Label" parent="Enemies/Enemy2"]
-offset_left = -28.0
-offset_top = -32.0
-offset_right = 28.0
-offset_bottom = 32.0
-text = "😈"
-horizontal_alignment = 1
-vertical_alignment = 1
-theme_override_font_sizes/font_size = 48
-
-[node name="Enemy3" type="RigidBody2D" parent="Enemies"]
-position = Vector2(940, 1600)
-script = "res://scripts/core/Enemy.gd"
-add_to_group = ["enemies"]
-
-[node name="Shape" type="CollisionShape2D" parent="Enemies/Enemy3"]
-shape = SubResource("EnemyShape")
-
-[node name="Face" type="Label" parent="Enemies/Enemy3"]
-offset_left = -28.0
-offset_top = -32.0
-offset_right = 28.0
-offset_bottom = 32.0
-text = "😈"
-horizontal_alignment = 1
-vertical_alignment = 1
-theme_override_font_sizes/font_size = 48
-
-[node name="Boss1" type="RigidBody2D" parent="Enemies"]
-position = Vector2(760, 1545)
+[node name="LaVaca1" type="RigidBody2D" parent="Enemies"]
+position = Vector2(760, 1500)
 script = "res://scripts/core/Enemy.gd"
 max_health = 100.0
-score_value = 1500
-mass = 3.0
+score_value = 1000
+mass = 2.5
 add_to_group = ["enemies"]
 
-[node name="Shape" type="CollisionShape2D" parent="Enemies/Boss1"]
-shape = SubResource("BossShape")
+[node name="Shape" type="CollisionShape2D" parent="Enemies/LaVaca1"]
+shape = SubResource("EnemyShape")
 
-[node name="Face" type="Label" parent="Enemies/Boss1"]
-offset_left = -40.0
-offset_top = -44.0
-offset_right = 40.0
-offset_bottom = 44.0
-text = "👹"
+[node name="Face" type="Label" parent="Enemies/LaVaca1"]
+offset_left = -32.0
+offset_top = -36.0
+offset_right = 32.0
+offset_bottom = 36.0
+text = "🐄"
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 54
+
+[node name="FrigoCamelo1" type="RigidBody2D" parent="Enemies"]
+position = Vector2(880, 1505)
+script = "res://scripts/core/Enemy.gd"
+max_health = 80.0
+score_value = 800
+mass = 2.0
+add_to_group = ["enemies"]
+
+[node name="Shape" type="CollisionShape2D" parent="Enemies/FrigoCamelo1"]
+shape = SubResource("EnemyShape")
+
+[node name="Face" type="Label" parent="Enemies/FrigoCamelo1"]
+offset_left = -32.0
+offset_top = -36.0
+offset_right = 32.0
+offset_bottom = 36.0
+text = "🐪"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 52
+
+[node name="Chimpanzini2" type="RigidBody2D" parent="Enemies"]
+position = Vector2(900, 1505)
+script = "res://scripts/core/Enemy.gd"
+max_health = 30.0
+score_value = 300
+add_to_group = ["enemies"]
+
+[node name="Shape" type="CollisionShape2D" parent="Enemies/Chimpanzini2"]
+shape = SubResource("EnemyShape")
+
+[node name="Face" type="Label" parent="Enemies/Chimpanzini2"]
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 30.0
+offset_bottom = 35.0
+text = "🐒"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 48
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

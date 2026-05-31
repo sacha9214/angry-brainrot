@@ -15,10 +15,7 @@ func _ready() -> void:
 	character_id = "tralalero"
 	ability_name = "TRALALALERO!!!"
 	ability_description = "Rebondit 3 fois en chantant — TRALALA"
-	# Physique très rebondissante
-	physics_material_override = PhysicsMaterial.new()
-	physics_material_override.bounce = 0.85
-	physics_material_override.friction = 0.1
+	# Physique très rebondissante (bounce=0.85, friction=0.1) définie dans TralalerTralala.tscn
 
 
 func _on_body_entered(body: Node) -> void:
