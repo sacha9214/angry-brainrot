@@ -1,9 +1,9 @@
 extends RigidBody2D
 class_name Structure
 
-enum Material { WOOD, STONE, ICE }
+enum StructureMaterial { WOOD, STONE, ICE }
 
-@export var material_type: Material = Material.WOOD
+@export var material_type: StructureMaterial = StructureMaterial.WOOD
 @export var max_health: float = 100.0
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -15,15 +15,15 @@ var current_health: float = 100.0
 
 # Damage multipliers per material
 const MATERIAL_HEALTH = {
-	Material.WOOD: 60.0,
-	Material.STONE: 150.0,
-	Material.ICE: 40.0
+	StructureMaterial.WOOD: 60.0,
+	StructureMaterial.STONE: 150.0,
+	StructureMaterial.ICE: 40.0
 }
 
 const MATERIAL_COLORS = {
-	Material.WOOD: Color(0.76, 0.52, 0.25),
-	Material.STONE: Color(0.55, 0.55, 0.55),
-	Material.ICE: Color(0.65, 0.85, 1.0, 0.85)
+	StructureMaterial.WOOD: Color(0.76, 0.52, 0.25),
+	StructureMaterial.STONE: Color(0.55, 0.55, 0.55),
+	StructureMaterial.ICE: Color(0.65, 0.85, 1.0, 0.85)
 }
 
 
