@@ -1,6 +1,7 @@
 extends BaseCharacter
 
-# Tralala Shark — rebondit 3x sur les surfaces, chaque rebond = dégâts + son
+# Tralalero Tralala — rebondit 3x sur les surfaces, chaque rebond = dégâts + son
+# "Il est un requin avec des Nike qui chante TRALALALERO TRALALA"
 
 @export var bounce_damage: float = 35.0
 @export var max_bounces: int = 3
@@ -11,9 +12,9 @@ var bounce_count: int = 0
 
 func _ready() -> void:
 	super._ready()
-	character_id = "tralala"
-	ability_name = "TRALALA BOUNCE"
-	ability_description = "Rebondit 3 fois"
+	character_id = "tralalero"
+	ability_name = "TRALALALERO!!!"
+	ability_description = "Rebondit 3 fois en chantant — TRALALA"
 	# Physique très rebondissante
 	physics_material_override = PhysicsMaterial.new()
 	physics_material_override.bounce = 0.85

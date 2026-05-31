@@ -1,6 +1,7 @@
 extends BaseCharacter
 
-# Crocodilo Bomba — explose à l'impact, détruit un rayon autour de lui
+# Bombardiro Crocodilo — explose à l'impact, détruit un rayon autour de lui
+# "Il est un crocodile avion de guerre qui bombarde tout sur son passage"
 
 @export var explosion_radius: float = 150.0
 @export var explosion_damage: float = 80.0
@@ -12,9 +13,9 @@ extends BaseCharacter
 
 func _ready() -> void:
 	super._ready()
-	character_id = "crocodilo"
-	ability_name = "BWAAAH BOOM"
-	ability_description = "Explose en touchant n'importe quoi"
+	character_id = "bombardiro"
+	ability_name = "BOMBARDIRO!!!"
+	ability_description = "Explose tout à l'impact — BWOOOOM"
 	has_ability = false  # L'explosion est automatique à l'impact
 
 

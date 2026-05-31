@@ -12,14 +12,15 @@ var save_data: Dictionary = {}
 const SAVE_PATH = "user://savegame.json"
 
 # IAP product IDs (Google Play Billing v6)
-const IAP_REMOVE_ADS    = "remove_ads"
-const IAP_CHAR_TOILET   = "char_toilet_britannico"
-const IAP_CHAR_PIZZA    = "char_pizza_falcon"
-const IAP_POWERUP_PACK  = "powerup_pack_5"
-const IAP_EPISODE_2     = "episode_pack_2"
+const IAP_REMOVE_ADS       = "remove_ads"
+const IAP_CHAR_BOMBOMBINI  = "char_bombombini_gusini"   # $0.99
+const IAP_CHAR_BRRBRR      = "char_brr_brr_patapim"     # $1.99
+const IAP_POWERUP_PACK     = "powerup_pack_5"            # $0.99
+const IAP_EPISODE_2        = "episode_pack_2"            # $1.99
 
 var ads_removed: bool = false
-var unlocked_characters: Array = ["crocodilo", "capybara", "tralala"]
+# Free chars: Bombardiro Crocodilo, Capybara Chill, Tralalero Tralala
+var unlocked_characters: Array = ["bombardiro", "capybara", "tralalero"]
 var powerups: Dictionary = {"super_speed": 0, "extra_bird": 0, "earthquake": 0}
 
 
@@ -31,7 +32,7 @@ func load_save() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
 		save_data = {
 			"stars": {},
-			"unlocked_chars": ["crocodilo", "capybara", "tralala"],
+			"unlocked_chars": ["bombardiro", "capybara", "tralalero"],
 			"ads_removed": false,
 			"powerups": {"super_speed": 0, "extra_bird": 0, "earthquake": 0},
 			"max_level": 1
@@ -44,7 +45,7 @@ func load_save() -> void:
 	file.close()
 
 	ads_removed = save_data.get("ads_removed", false)
-	unlocked_characters = save_data.get("unlocked_chars", ["crocodilo", "capybara", "tralala"])
+	unlocked_characters = save_data.get("unlocked_chars", ["bombardiro", "capybara", "tralalero"])
 	powerups = save_data.get("powerups", {"super_speed": 0, "extra_bird": 0, "earthquake": 0})
 
 

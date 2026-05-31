@@ -12,11 +12,11 @@ Free-to-play slingshot game for Android — Angry Birds mechanics + original abs
 
 | Character | Ability | Unlock |
 |---|---|---|
-| 🐊 Crocodilo Bomba | Explodes on impact, area damage | Free |
-| 🦫 Capybara Chill | Pierces through structures | Free |
-| 🦈 Tralala Shark | Bounces 3x, each bounce = damage | Free |
-| 🚽 Toilet Britannico | Spins and destroys stone | IAP $0.99 |
-| 🍕 Pizza Falcon | Splits into 3 mid-flight | IAP $1.99 |
+| 🐊 Bombardiro Crocodilo | Explose à l'impact, dégâts zone — BOMBARDIRO!!! | Free |
+| 🦫 Capybara Chill | Traverse toutes les structures (pierce) | Free |
+| 🦈 Tralalero Tralala | Rebondit 3x, chaque rebond = dégâts + son | Free |
+| 🪿 Bombombini Gusini | Tourne comme une toupie, détruit la pierre | IAP $0.99 |
+| 🕷️ Brr Brr Patapim | Se divise en 3 projectiles en plein vol | IAP $1.99 |
 
 ## Monetization (COPPA 2.0 compliant)
 
@@ -39,10 +39,12 @@ angry-brainrot/
 │   │   ├── Structure.gd       # Destructible wood/stone/ice
 │   │   └── Enemy.gd           # Enemy with health + defeat
 │   ├── characters/
-│   │   ├── BaseCharacter.gd   # Base class for all birds
-│   │   ├── CrocodiloBomba.gd  # Explosion on impact
-│   │   ├── CapybaraChill.gd   # Pierce through
-│   │   └── TralaShark.gd      # 3x bounce
+│   │   ├── BaseCharacter.gd       # Base class for all birds
+│   │   ├── BombardiroCrocodilo.gd # Explosion on impact (free)
+│   │   ├── CapybaraChill.gd       # Pierce through (free)
+│   │   ├── TralalerTralala.gd     # 3x bounce (free)
+│   │   ├── BombombiniGusini.gd    # Spin attack — IAP $0.99
+│   │   └── BrrBrrPatapim.gd       # Split x3 — IAP $1.99
 │   └── ui/
 │       ├── MainMenu.gd
 │       ├── LevelSelect.gd

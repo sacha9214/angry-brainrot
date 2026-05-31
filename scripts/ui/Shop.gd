@@ -22,8 +22,8 @@ func _ready() -> void:
 func _setup_shop_items() -> void:
 	# Connect each buy button to parental gate
 	$Items/RemoveAds/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_REMOVE_ADS))
-	$Items/ToiletChar/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_CHAR_TOILET))
-	$Items/PizzaChar/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_CHAR_PIZZA))
+	$Items/BombombiniChar/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_CHAR_BOMBOMBINI))
+	$Items/BrrBrrChar/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_CHAR_BRRBRR))
 	$Items/PowerupPack/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_POWERUP_PACK))
 	$Items/Episode2/BuyButton.pressed.connect(func(): _show_parental_gate(GameManager.IAP_EPISODE_2))
 
@@ -68,12 +68,12 @@ func _on_purchase_completed(product_id: String) -> void:
 		GameManager.IAP_REMOVE_ADS:
 			GameManager.ads_removed = true
 			GameManager.save_data["ads_removed"] = true
-		GameManager.IAP_CHAR_TOILET:
-			if "toilet" not in GameManager.unlocked_characters:
-				GameManager.unlocked_characters.append("toilet")
-		GameManager.IAP_CHAR_PIZZA:
-			if "pizza" not in GameManager.unlocked_characters:
-				GameManager.unlocked_characters.append("pizza")
+		GameManager.IAP_CHAR_BOMBOMBINI:
+			if "bombombini" not in GameManager.unlocked_characters:
+				GameManager.unlocked_characters.append("bombombini")
+		GameManager.IAP_CHAR_BRRBRR:
+			if "brrbrr" not in GameManager.unlocked_characters:
+				GameManager.unlocked_characters.append("brrbrr")
 		GameManager.IAP_POWERUP_PACK:
 			for key in GameManager.powerups:
 				GameManager.powerups[key] += 5
