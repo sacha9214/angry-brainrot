@@ -12,11 +12,11 @@ Free-to-play slingshot game for Android — Angry Birds mechanics + original abs
 
 | Character | Ability | Unlock |
 |---|---|---|
-| 🐊 Bombardiro Crocodilo | Explose à l'impact, dégâts zone — BOMBARDIRO!!! | Free |
-| 🦫 Capybara Chill | Traverse toutes les structures (pierce) | Free |
-| 🦈 Tralalero Tralala | Rebondit 3x, chaque rebond = dégâts + son | Free |
-| 🪿 Bombombini Gusini | Tourne comme une toupie, détruit la pierre | IAP $0.99 |
-| 🕷️ Brr Brr Patapim | Se divise en 3 projectiles en plein vol | IAP $1.99 |
+| 🐊 Bombardiro Crocodilo | Explodes on impact, area damage — BOMBARDIRO!!! | Free |
+| 🦫 Capybara Chill | Pierces through every structure | Free |
+| 🦈 Tralalero Tralala | Bounces 3x, each bounce deals damage and plays a sound | Free |
+| 🪿 Bombombini Gusini | Spins like a top, breaks stone | IAP $0.99 |
+| 🕷️ Brr Brr Patapim | Splits into 3 projectiles mid-flight | IAP $1.99 |
 
 ## Monetization (COPPA 2.0 compliant)
 
